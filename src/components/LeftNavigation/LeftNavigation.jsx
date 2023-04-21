@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Categories from '../Categories/Categories';
 
 const LeftNavigation = () => {
     const [categories, setCategories] = useState([]);
@@ -8,13 +9,18 @@ const LeftNavigation = () => {
             .then(data => setCategories(data))
     }, [])
 
-    console.log(categories)
+    // console.log(categories)
 
     return (
         <div>
             <p className='fw-bolder'>All Category</p>
-            <div>
-
+            <div className='ms-5'>
+                {
+                    categories.map((category) => <Categories
+                        category={category}
+                        key={category.id}
+                    ></Categories>)
+                }
             </div>
         </div>
     );
