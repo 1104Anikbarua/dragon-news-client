@@ -6,7 +6,7 @@ const Categories = (props) => {
     const { id, name } = category
     return (
         <p className='d-flex align-items-center'>
-            <Link className='text-decoration-none fs-5 fw-medium text-secondary' to={`categories/${id}`}>{name}</Link>
+            <Link className='text-decoration-none fs-5 fw-medium text-secondary' to={`/categories/${id}`}>{name}</Link>
         </p>
     );
 };
