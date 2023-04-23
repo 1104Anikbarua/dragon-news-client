@@ -1,0 +1,8 @@
+.nav-btn {
+    background-color: gray !important;
+    border: none !important;
+}
+
+.nav-btn:hover {
+    background-color: gray !important;
+}
