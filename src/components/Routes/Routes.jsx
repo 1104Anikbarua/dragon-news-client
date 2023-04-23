@@ -1,5 +1,4 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
-import Home from "../Home/Home/Home";
 import Main from "../Layouts/Main";
 import Category from "../Home/Category/Category";
 import News from "../Layouts/News";

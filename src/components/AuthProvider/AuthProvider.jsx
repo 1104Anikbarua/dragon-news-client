@@ -1,6 +1,7 @@
 import React, { createContext, useState } from 'react';
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import auth from '../firebase/firebase.init';
+import { useEffect } from 'react';
 
 export const NewsContext = createContext(null);
 
@@ -15,15 +16,31 @@ const AuthProvider = ({ children }) => {
     const signUpUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
-    const loginUser = (email, password) => {
+    // loginUser 
+    const logInUser = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
+
+    const logOutUser = () => {
+        return signOut(auth);
+    }
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            console.log(currentUser);
+            setUser(currentUser)
+        })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
 
 
 
     const authInfo = {
         signUpUser,
-        loginUser,
+        logInUser,
+        logOutUser,
         user,
         loading,
     }
