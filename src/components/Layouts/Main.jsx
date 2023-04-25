@@ -6,6 +6,7 @@ import LeftNavigation from '../LeftNavigation/LeftNavigation';
 import RightNavigation from '../RightNavigation/RightNavigation';
 import { Outlet } from 'react-router-dom';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
+// import { Flip, ToastContainer } from 'react-toastify';
 const Main = () => {
     return (
         <div>
@@ -28,6 +29,20 @@ const Main = () => {
 
             </Container>
             <Footer></Footer>
+
+            {/* <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+                transition={Flip}
+            /> */}
         </div>
     );
 };

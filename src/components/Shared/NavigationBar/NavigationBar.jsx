@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 
 const NavigationBar = () => {
     const { user, logOutUser } = useContext(NewsContext);
+    console.log(user)
 
 
     const handleLogOut = () => {
@@ -19,6 +20,7 @@ const NavigationBar = () => {
             })
             .catch((error) => {
                 const errorMessage = error.code;
+                toast.error(errorMessage)
             })
     }
 
@@ -40,7 +42,7 @@ const NavigationBar = () => {
                         </Nav>
                         <Nav className='ms-auto'>
                             <Link to='/'>
-                                <img src={userImg} alt="" />
+                                <img className='rounded-circle' width={'40px'} src={user ? user?.photoURL : userImg} alt="user image" />
                             </Link>
                             {
                                 user

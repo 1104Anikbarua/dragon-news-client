@@ -6,6 +6,8 @@ import NewsDetail from "../Home/NewsDetail/NewsDetail";
 import Login from "../Shared/Auth/Login/Login";
 import SignUp from "../Shared/Auth/SignUp/SignUp";
 import Auth from "../Layouts/Auth/Auth";
+import RequireAuth from "../RequireAuth/RequireAuth";
+import TermsCondition from "../TermsConditions/TermsCondition";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +25,10 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <SignUp></SignUp>
+            },
+            {
+                path: '/terms',
+                element: <TermsCondition></TermsCondition>
             }
         ]
     },
@@ -52,7 +58,9 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/news/:id',
-                element: <NewsDetail></NewsDetail>,
+                element: <RequireAuth>
+                    <NewsDetail></NewsDetail>
+                </RequireAuth>,
                 loader: (props) => {
                     const { params } = props;
                     const { id } = params;

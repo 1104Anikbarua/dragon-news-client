@@ -8,17 +8,53 @@ import swiming from '../../assets/qZone1.png';
 import classimg from '../../assets/qZone2.png';
 import playground from '../../assets/qZone3.png';
 import bgimg from '../../assets/bg.png'
+import { useContext } from 'react';
+import { NewsContext } from '../AuthProvider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const RightNavigation = () => {
+
+
+    const { googleSignUp, githubSignUp } = useContext(NewsContext);
+
+    const handleGoogleSignUp = () => {
+        googleSignUp()
+            .then((result) => {
+                const user = result.user;
+                console.log(user)
+                toast.success('successfully signup')
+            })
+            .catch((error) => {
+                const errorMessage = error.code;
+                console.log(errorMessage)
+                toast.error('signup failed')
+
+            })
+    }
+    const handleGithubSignUp = () => {
+        githubSignUp()
+            .then((result) => {
+                const user = result.user;
+                console.log(user)
+                toast.success('successfully signup')
+            })
+            .catch((error) => {
+                const errorMessage = error.code;
+                console.log(errorMessage)
+                toast.error('signup failed')
+
+            })
+    }
+
     return (
         <div>
             <p className='fw-bolder'>Login With</p>
             <div className='d-flex flex-column mb-3'>
-                <Button className='text-primary mb-2 btn' variant='outline-primary'>
+                <Button onClick={handleGoogleSignUp} className='text-primary mb-2 btn' variant='outline-primary'>
                     <FcGoogle className='me-1 google-icon'></FcGoogle>
                     Login With Google
                 </Button>
-                <Button className='text-dark mb-2 btn' variant='outline-dark'>
+                <Button onClick={handleGithubSignUp} className='text-dark mb-2 btn' variant='outline-dark'>
                     <AiFillGithub className='me-2 google-icon'></AiFillGithub>
                     Login With Github
                 </Button>
