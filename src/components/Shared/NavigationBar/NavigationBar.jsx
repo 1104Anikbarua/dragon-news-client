@@ -41,7 +41,7 @@ const NavigationBar = () => {
 
                         </Nav>
                         <Nav className='ms-auto'>
-                            <Link to='/'>
+                            <Link to='/profile'>
                                 <img className='rounded-circle' width={'40px'} src={user ? user?.photoURL : userImg} alt="user image" />
                             </Link>
                             {

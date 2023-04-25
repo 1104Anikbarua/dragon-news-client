@@ -8,6 +8,7 @@ import SignUp from "../Shared/Auth/SignUp/SignUp";
 import Auth from "../Layouts/Auth/Auth";
 import RequireAuth from "../RequireAuth/RequireAuth";
 import TermsCondition from "../TermsConditions/TermsCondition";
+import UpdateProfile from "../UpdateProfile/UpdateProfile";
 
 const router = createBrowserRouter([
     {
@@ -29,6 +30,12 @@ const router = createBrowserRouter([
             {
                 path: '/terms',
                 element: <TermsCondition></TermsCondition>
+            },
+            {
+                path: '/profile',
+                element: <RequireAuth>
+                    <UpdateProfile></UpdateProfile>
+                </RequireAuth>
             }
         ]
     },
