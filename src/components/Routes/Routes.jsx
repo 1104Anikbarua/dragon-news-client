@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         path: 'categories',
         element: <Main></Main>,
         loader: () => {
-            return fetch(`http://localhost:5000/news`)
+            return fetch(`https://batch-7-milestone-10-m-5-dragon-news-server.vercel.app/news`)
         },
         children: [
             {
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
                     const { params } = props;
                     const { id } = params;
                     // console.log(id)
-                    return fetch(`http://localhost:5000/categories/${id}`)
+                    return fetch(`https://batch-7-milestone-10-m-5-dragon-news-server.vercel.app/categories/${id}`)
                 }
             }
         ]
@@ -71,7 +71,7 @@ const router = createBrowserRouter([
                 loader: (props) => {
                     const { params } = props;
                     const { id } = params;
-                    return fetch(`http://localhost:5000/news/${id}`)
+                    return fetch(`https://batch-7-milestone-10-m-5-dragon-news-server.vercel.app/news/${id}`)
                 }
             }
         ]

@@ -9,7 +9,7 @@ import { HiOutlineCalendar } from 'react-icons/hi2';
 const LeftNavigation = () => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/categories')
+        fetch('https://batch-7-milestone-10-m-5-dragon-news-server.vercel.app/categories')
             .then(response => response.json())
             .then(data => setCategories(data))
     }, [])
